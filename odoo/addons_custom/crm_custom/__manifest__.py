@@ -26,6 +26,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/crm_customer_request_view.xml',
+        'views/crm_menu.xml',
 
     ],
     # only loaded in demonstration mode
