@@ -1,48 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="crm_customer_request_view_form" model="ir.ui.view">
+        <!-- View definition for Customer Request form view -->
+        <record model="ir.ui.view" id="view_crm_customer_request_form">
             <field name="name">crm.customer.request.form</field>
             <field name="model">crm.customer.request</field>
             <field name="arch" type="xml">
-                <form string="CRM Customer Request">
+                <form string="Customer Request">
                     <sheet>
                         <group>
                             <field name="product_id"/>
                             <field name="opportunity_id"/>
                             <field name="date"/>
-                            <field name="description"/>
                             <field name="qty"/>
+                            <field name="description"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record id="crm_customer_view_tree" model="ir.ui.view">
-            <field name="name">crm_customer_tree</field>
+        <record id="view_crm_customer_request_tree" model="ir.ui.view">
+            <field name="name">crm.customer.request.tree</field>
             <field name="model">crm.customer.request</field>
             <field name="arch" type="xml">
-                <tree string="_tree">
+                <tree>
                     <field name="product_id"/>
                     <field name="opportunity_id"/>
                     <field name="date"/>
-                    <field name="description"/>
                     <field name="qty"/>
+                    <field name="description"/>
                 </tree>
             </field>
         </record>
 
-        <record id="action_crm_customer_request" model="ir.actions.act_window">
-            <field name="name">Crm Customer Request</field>
+        <!-- Action definition for Customer Request tree view -->
+        <record model="ir.actions.act_window" id="action_crm_customer_request_tree">
+            <field name="name">Customer Requests</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">crm.customer.request</field>
             <field name="view_mode">tree,form</field>
-<!--            <field name="context">{'create':False,'edit':False,'delete':False}</field>-->
+            <field name="context" > {'create':False, 'edit':False,'delete':False}</field>
         </record>
 
-        <menuitem id="crm_customer_request_menu" name="CRM CUSTOMER REQUEST"/>
-        <menuitem id="crm_customer_menu" parent="crm_customer_request_menu" name="CRM Customer" action="action_crm_customer_request" sequence="6"/>
-
+        <!-- Menu definition for Customer Requests -->
+        <menuitem id="menu_crm_customer_request" name="Customer Requests" parent="crm.crm_menu_root"/>
+        <menuitem id="menu_crm_customer_request_pipeline" name="Pipeline" parent="menu_crm_customer_request" action="action_crm_customer_request_tree"/>
     </data>
 </odoo>
