@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Top menu item -->
+    <menuitem
+            name="Payment Request"
+            id="ev_payment_request.menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem
+            name="Payment Document"
+            id="payment_document_menu"
+            parent="ev_payment_request.menu_root"
+            action="payment_document_action"/>
+
+    <menuitem
+            name="Payment Request Reason"
+            id="payment_request_reason_menu"
+            parent="ev_payment_request.menu_root"
+            action="payment_request_reason_action"/>
+
+    <menuitem
+            name="Economic Contract"
+            id="economic_contract_menu"
+            parent="ev_payment_request.menu_root"
+            action="economic_contract_action"/>
+
+    </data>
+</odoo>
