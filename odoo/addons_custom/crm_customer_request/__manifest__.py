@@ -13,6 +13,7 @@
         #'security\ir.model.access.csv',
         'views/customer_request_views.xml',
         'views/crm_lead_views.xml',
+        'wizard/import_customer_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

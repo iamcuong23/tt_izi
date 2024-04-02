@@ -31,4 +31,3 @@ class CrmLead(models.Model):
         return new_stage_ids
 
     #
-    

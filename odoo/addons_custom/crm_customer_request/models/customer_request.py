@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+import xlrd
 
 class CustomerRequest(models.Model):
     _name = 'crm.customer.request'
@@ -9,3 +10,5 @@ class CustomerRequest(models.Model):
     date = fields.Date(string='Date', required=True, default=fields.Date.today())
     qty = fields.Float(string='Quantity', default=1)
     description = fields.Text(string='Description')
+
+

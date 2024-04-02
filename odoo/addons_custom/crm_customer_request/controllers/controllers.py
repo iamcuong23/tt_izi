@@ -1,21 +1,28 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+import json
 
+class LeadAPI(http.Controller):
 
-# class CrmCustomerRequest(http.Controller):
-#     @http.route('/crm_customer_request/crm_customer_request', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+    @http.route('/create_lead', type='json', auth='public', methods=['POST'])
+    def create_lead(self, **kwargs):
+        Lead = http.request.env['crm.lead']
+        CustomerRequest = http.request.env['crm.customer.request']
 
-#     @http.route('/crm_customer_request/crm_customer_request/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('crm_customer_request.listing', {
-#             'root': '/crm_customer_request/crm_customer_request',
-#             'objects': http.request.env['crm_customer_request.crm_customer_request'].search([]),
-#         })
+        data = json.loads(http.request.httprequest.data)
+        customer_requests = data.pop('customer_requests', [])
 
-#     @http.route('/crm_customer_request/crm_customer_request/objects/<model("crm_customer_request.crm_customer_request"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('crm_customer_request.object', {
-#             'object': obj
-#         })
+        lead_vals = {
+            'name': data.get('name'),
+            'partner_id': data.get('partner_id'),
+            'planned_revenue': data.get('planned_revenue'),
+            'email_from': data.get('email_from'),
+            'phone': data.get('phone'),
+            'description': data.get('description')
+        }
+        new_lead = Lead.create(lead_vals)
+
+        for req in customer_requests:
+            req['opportunity_id'] = new_lead.id
+            CustomerRequest.create(req)
+
+        return {'success': True}

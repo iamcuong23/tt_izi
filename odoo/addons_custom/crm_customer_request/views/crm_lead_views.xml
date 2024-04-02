@@ -20,4 +20,7 @@
             </notebook>
         </field>
     </record>
+
+    <!-- Define HTTP route for creating lead via API -->
+
 </odoo>
