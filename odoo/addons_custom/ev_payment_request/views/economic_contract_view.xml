@@ -7,15 +7,24 @@
             <field name="arch" type="xml">
                 <form string="economic_contract_form">
                     <header>
-                        <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                        <button name="action_validity" string="Accept" type="object" class="oe_highlight"
+                                            attrs="{'invisible': [('state', '=', 'validity')]}"/>
+                        <button name="action_draft" string="Cancel" type="object" class="oe_highlight"
+                                            attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,validity,invalidity" options="{'clickable': '0'}"/>
 
                     </header>
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="supplier_id"/>
-                            <field name="contract_date"/>
-                            <field name="value"/>
+                            <group>
+                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="supplier_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="contract_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="value" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="state" invisible="1"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

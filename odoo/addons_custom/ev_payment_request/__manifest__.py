@@ -24,12 +24,14 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        #'security/security.xml',
+        'security/ir.model.access.csv',
         'views/payment_document_view.xml',
         'views/payment_request_menu.xml',
         'views/payment_request_reason_view.xml',
         'views/payment_request_reason_line_view.xml',
         'views/economic_contract_view.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

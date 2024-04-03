@@ -10,21 +10,15 @@ class economiccontract(models.Model):
     value = fields.Float(string='Contract Value')
     state = fields.Selection([('draft','Draft'), ('validity', 'Validity'), ('invalidity', 'Invalidity')], string="State", default='draft', readonly=True)
 
-    def action_validate(self):
+    def action_draft(selfs):
+        selfs.state = 'draft'
+
+    def action_validity(self):
         self.state = 'validity'
 
-    def action_invalidate(self):
+    def action_invalidity(self):
         self.state = 'invalidity'
 
-    def write(self, vals):
-        if 'state' in vals and vals['state'] == 'validity':
-            vals['readonly'] = True
-        return super(economiccontract, self).write(vals)
+    def action_exit(self):
+        pass
 
-    def write(self, vals):
-        if 'state' in vals:
-            if vals['state'] == 'validity':
-                vals['readonly'] = True
-            elif vals['state'] == 'invalidity':
-                vals['readonly'] = False
-        return super(economiccontract, self).write(vals)

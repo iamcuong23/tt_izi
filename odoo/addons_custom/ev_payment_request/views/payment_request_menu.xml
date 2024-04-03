@@ -11,19 +11,23 @@
             name="Payment Document"
             id="payment_document_menu"
             parent="ev_payment_request.menu_root"
-            action="payment_document_action"/>
+            action="payment_document_action"
+            groups="base.group_user"/>
 
     <menuitem
             name="Payment Request Reason"
             id="payment_request_reason_menu"
             parent="ev_payment_request.menu_root"
-            action="payment_request_reason_action"/>
+            action="payment_request_reason_action"
+            groups="base.group_user"/>
 
     <menuitem
             name="Economic Contract"
             id="economic_contract_menu"
             parent="ev_payment_request.menu_root"
-            action="economic_contract_action"/>
+            action="economic_contract_action"
+            groups="base.group_user"/>
+
 
     </data>
 </odoo>
