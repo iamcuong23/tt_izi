@@ -8,7 +8,6 @@
                 <form string="payment_request_reason_line_form">
                     <sheet>
                         <group>
-<!--                            <field name="reason_id"/>-->
                             <field name="document_id"/>
                             <field name="required"/>
                         </group>
@@ -27,12 +26,5 @@
                 </tree>
             </field>
         </record>
-
-<!--        <record id="payment_request_reason_line_action" model="ir.actions.act_window">-->
-<!--            <field name="name">"payment_request_reason_line_action</field>-->
-<!--            <field name="type">ir.actions.act_window</field>-->
-<!--            <field name="res_model">payment.request.reason.line</field>-->
-<!--            <field name="view_mode">tree,form</field>-->
-<!--        </record>-->
     </data>
 </odoo>

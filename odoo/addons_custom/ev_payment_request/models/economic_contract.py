@@ -4,11 +4,12 @@ class economiccontract(models.Model):
     _name = 'economic.contract'
     _description = 'Economic Contract'
 
-    name = fields.Char(string='Contract ID',required=True)
-    supplier_id = fields.Many2one('res.partner', string='Supplier',required=True)
+    name = fields.Char(string='Contract ID', required=True)
+    supplier_id = fields.Many2one('res.partner', string='Supplier', required=True)
     contract_date = fields.Date(string='Contract Date', default=fields.Date.today())
     value = fields.Float(string='Contract Value')
-    state = fields.Selection([('draft','Draft'), ('validity', 'Validity'), ('invalidity', 'Invalidity')], string="State", default='draft', readonly=True)
+    state = fields.Selection([('draft', 'Draft'), ('validity', 'Validity'), ('invalidity', 'Invalidity')],
+                             string="State", default='draft', readonly=True)
 
     def action_draft(selfs):
         selfs.state = 'draft'
@@ -22,3 +23,13 @@ class economiccontract(models.Model):
     def action_exit(self):
         pass
 
+    def return_to_tree(self):
+        action = {
+            'type': 'ir.actions.act_window',
+            'name': 'Economic Contracts',
+            'res_model': 'economic.contract',
+            'view_mode': 'tree,form',
+            'target': 'main',
+            'domain': [],
+        }
+        return action

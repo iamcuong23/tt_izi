@@ -7,12 +7,15 @@
             <field name="arch" type="xml">
                 <form string="economic_contract_form">
                     <header>
+                        <!--Button action state-->
                         <button name="action_validity" string="Accept" type="object" class="oe_highlight"
-                                            attrs="{'invisible': [('state', '=', 'validity')]}"/>
+                                attrs="{'invisible': [('state', '=', 'validity')]}"/>
                         <button name="action_draft" string="Cancel" type="object" class="oe_highlight"
-                                            attrs="{'invisible': [('state', '=', 'draft')]}"/>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,validity,invalidity" options="{'clickable': '0'}"/>
-
+                                attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                        <button name="return_to_tree" string="Back" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('state', '=', 'validity')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,validity,invalidity"
+                               options="{'clickable': '0'}"/>
                     </header>
                     <sheet>
                         <group>
@@ -30,7 +33,6 @@
                 </form>
             </field>
         </record>
-
 
         <record id="economic_contract_view_tree" model="ir.ui.view">
             <field name="name">economic_contract_tree</field>
