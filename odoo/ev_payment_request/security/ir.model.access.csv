@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_payment_request_reason,access_payment_request_reason,model_payment_request_reason,base.group_user,1,1,1,1
+
+access_payment_request_reason_line,access_payment_request_reason_line,model_payment_request_reason_line,base.group_user,1,1,1,1
+
+access_payment_document,access_payment_document,model_payment_document,base.group_user,1,1,1,1
+
+access_economic_contract,access_economic_contract,model_economic_contract,base.group_user,1,1,1,1
+
