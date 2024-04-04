@@ -22,7 +22,7 @@
                        </group>
                        <notebook>
                            <page name="reason_id" string="Document">
-                               <field name="line_ids"/>
+                               <field name="payment_request_reason_line_ids"/>
                            </page>
                        </notebook>
                    </sheet>

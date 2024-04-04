@@ -9,24 +9,25 @@
     'author': "My Company",
     'website': "https://www.yourcompany.com",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
+
     # for the full list
     'category': 'Uncategorized',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base',],
+    'depends': ['base', 'account', 'hr', 'sale', 'purchase', 'payment'],
 
     # always loaded
     'data': [
-        #'security/security.xml',
         'security/ir.model.access.csv',
-        'views/payment_document_view.xml',
         'views/payment_request_menu.xml',
+        'data/payment_request_sequence.xml',
+        'views/payment_document_view.xml',
         'views/payment_request_reason_view.xml',
         'views/payment_request_reason_line_view.xml',
         'views/economic_contract_view.xml',
-
+        'views/payment_request_view.xml',
+        'views/payment_request_line_view.xml',
+        'data/payment_request_sequence.xml',
     ],
 }

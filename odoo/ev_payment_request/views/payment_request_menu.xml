@@ -6,7 +6,6 @@
             name="Payment Request"
             id="ev_payment_request.menu_root"/>
 
-    <!-- menu categories -->
     <menuitem
             name="Payment Document"
             id="payment_document_menu"
@@ -15,11 +14,24 @@
             groups="base.group_user"/>
 
     <menuitem
+            name="Payment Request"
+            id="payment_request_menu_root"
+            parent="ev_payment_request.menu_root"
+            groups="base.group_user"/>
+
+    <menuitem
+            name="Payment Request"
+            id="payment_request_menu"
+            parent="payment_request_menu_root"
+            action="payment_request_action"/>
+
+    <menuitem
             name="Payment Request Reason"
             id="payment_request_reason_menu"
-            parent="ev_payment_request.menu_root"
+            parent="payment_request_menu_root"
             action="payment_request_reason_action"
-            groups="base.group_user"/>
+            groups="base.group_user"
+            sequence="2"/>
 
     <menuitem
             name="Economic Contract"

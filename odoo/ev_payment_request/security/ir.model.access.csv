@@ -8,3 +8,6 @@ access_payment_document,access_payment_document,model_payment_document,base.grou
 
 access_economic_contract,access_economic_contract,model_economic_contract,base.group_user,1,1,1,1
 
+access_payment_request,access_payment_request,model_payment_request,base.group_user,1,1,1,1
+
+access_payment_request_line,access_payment_request_line,model_payment_request_line,base.group_user,1,1,1,1
