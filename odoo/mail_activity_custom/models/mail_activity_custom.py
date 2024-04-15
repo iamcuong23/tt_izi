@@ -1,6 +1,5 @@
 from odoo import models, fields, api, exceptions
 from datetime import timedelta
-import datetime
 
 
 class mailActivityCustom(models.Model):
